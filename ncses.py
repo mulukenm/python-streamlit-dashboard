@@ -21,7 +21,9 @@ st.sidebar.markdown("This application is a Streamlit dashboard used "
             "to SED data.")
 
 @st.cache(persist=True)
-
+def load_data():
+    data = pd.read_csv(DATA_URL)
+    return data
 data = load_data()
 
 st.sidebar.markdown("### Number of Earned Doctorates by Race and Ethnicity")
