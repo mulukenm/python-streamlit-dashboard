@@ -28,7 +28,7 @@ data = load_data()
 
 st.sidebar.markdown("### Number of Earned Doctorates by Race and Ethnicity")
 select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='1')
-race_count = data.groupby(["Race_and_Ethnicity"])['Number].agg('sum')
+race_count = data.groupby(["Race_and_Ethnicity"])['Number'].agg('sum')
 race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Values':race_count.values})
 if not st.sidebar.checkbox("Hide", True):
     st.markdown("### Number of tweets by sentiment")
