@@ -9,15 +9,16 @@ import matplotlib.pyplot as plt
 
 
 DATA_URL = (
-    "Tweets.csv"
+    "SED.csv"
 )
 
-st.title("Sentiment Analysis of Tweets about US Airlines")
-st.sidebar.title("Sentiment Analysis of Tweets")
+st.title("NCSES Survey of Earned Doctorates (SED)")
+st.sidebar.title("Survey of Earned Doctorates (SED)")
 st.markdown("This application is a Streamlit dashboard used "
-            "to analyze sentiments of tweets 🐦")
+            "to analyze SED data by Race and ethnicity, Sex, S&E Fields, Broad Fields
+            "detailed Fields, and Years  ")
 st.sidebar.markdown("This application is a Streamlit dashboard used "
-            "to analyze sentiments of tweets 🐦")
+            "to analyze sentiments of tweets.")
 
 @st.cache(persist=True)
 def load_data():
