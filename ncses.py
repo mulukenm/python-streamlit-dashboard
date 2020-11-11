@@ -61,6 +61,6 @@ if not st.sidebar.checkbox("Hide", True, key='3'):
     if select == 'Bar plot':
         fig3 = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
         st.plotly_chart(fig3)
-    elif:
-        fig3 = px.pie(sex_count, values='Number', names='Sex')
-        st.plotly_chart(fig3)
+    else:
+        fig4 = px.pie(sex_count, values='Number', names='Sex')
+        st.plotly_chart(fig4)
