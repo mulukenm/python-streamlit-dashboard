@@ -29,7 +29,7 @@ data = load_data()
 st.sidebar.markdown("### Number of Earned Doctorates")
 sex = st.sidebar.selectbox('Visualization type', ['Sunburst'])
 fig1 = px.sunburst(data, path=['S&E_Fields','Broad_Fields', 'Detailed_Fields', 'Year', 'Sex'], values='Number', height = 800, width = 800)
-st.sidebar.checkbox("Hide", True)
+st.sidebar.checkbox("Close", True)
 #fig1.update_layout(
     # title={
     #     'text': "Field of Study of Doctrate Recipients by Sex and Selected Years",
@@ -56,7 +56,7 @@ st.sidebar.markdown("### Number of Earned Doctorates by Sex")
 sex = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='3')
 sex_count = data.groupby(["Sex"])['Number'].agg('sum')
 sex_count = pd.DataFrame({'Sex':sex_count.index, 'Number':sex_count.values})
-if not st.sidebar.checkbox("Close", True, key='3'):
+if not st.sidebar.checkbox("Hide", True, key='3'):
     st.markdown("### Numbers by Sex")
     if select == 'Bar plot':
         fig3 = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
