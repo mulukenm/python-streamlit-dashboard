@@ -33,9 +33,9 @@ race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Number':race_
 if not st.sidebar.checkbox("Hide", True):
     st.markdown("### Numbers by Race/Ethnicity")
     if select == 'Bar plot':
-        px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
-        #fig = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
-        st.plotly_chart()
+        fig = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
+        #st.plotly_chart()
+        st.fig.show()
     else:
         fig = px.pie(race_count, values='Number', names='Race_and_Ethnicity')
         st.plotly_chart(fig)
