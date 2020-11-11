@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 DATA_URL = (
-    "SED.csv"
+    "SEDed.csv"
 )
 
 st.title("NCSES Survey of Earned Doctorates (SED)")
