@@ -29,12 +29,12 @@ data = load_data()
 st.sidebar.markdown("### Number of Earned Doctorates by Race and Ethnicity")
 select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='1')
 race_count = data.groupby(["Race_and_Ethnicity"])['Number'].agg('sum')
-race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Values':race_count.values})
+race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Number':race_count.values})
 if not st.sidebar.checkbox("Hide", True):
     st.markdown("### Number of tweets by sentiment")
     if select == 'Bar plot':
-        fig = px.bar(sentiment_count, x='Sentiment', y='Tweets', color='Tweets', height=500)
+        fig = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
         st.plotly_chart(fig)
     else:
-        fig = px.pie(sentiment_count, values='Tweets', names='Sentiment')
+        fig = px.pie(race_count, values='Number', names='Race_and_Ethnicity')
         st.plotly_chart(fig)
