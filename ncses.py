@@ -33,7 +33,7 @@ race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Number':race_
 if not st.sidebar.checkbox("Hide", True):
     st.markdown("### Numbers by Race/Ethnicity")
     if select == 'Bar plot':
-        fig = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Race_and_Ethnicity', height=500)
+        fig = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
         st.plotly_chart(fig)
     else:
         fig = px.pie(race_count, values='Number', names='Race_and_Ethnicity')
@@ -46,7 +46,7 @@ sex_count = pd.DataFrame({'Sex':sex_count.index, 'Number':sex_count.values})
 if not st.sidebar.checkbox("Close", True, key='2'):
     st.markdown("### Numbers by Sex")
     if select == 'Bar plot':
-        fig = px.bar(sex_count, x='Sex', y='Number', color='Sex', height=500)
+        fig = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
         st.plotly_chart(fig)
     else:
         fig = px.pie(sex_count, values='Number', names='Sex')
