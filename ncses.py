@@ -28,16 +28,16 @@ data = load_data()
 
 st.sidebar.markdown("### Number of Earned Doctorates")
 sex = st.sidebar.selectbox('Visualization type', ['Sunburst'])
-fig1 = px.sunburst(data, path=['S&E_Fields','Broad_Fields', 'Detailed_Fields', 'Year', 'Sex'], values='Number', height = 800, width = 800)
-if not st.sidebar.checkbox("Close", True)
-#fig1.update_layout(
-    # title={
-    #     'text': "Field of Study of Doctrate Recipients by Sex and Selected Years",
-    #     'y':0.94,
-    #     'x':0.5,
-    #     'xanchor': 'center',
-    #     'yanchor': 'top'})
-st.plotly_chart(fig1)
+if not st.sidebar.checkbox("Close", True):
+    fig1 = px.sunburst(data, path=['S&E_Fields','Broad_Fields', 'Detailed_Fields', 'Year', 'Sex'], values='Number', height = 800, width = 800)
+    #fig1.update_layout(
+        # title={
+        #     'text': "Field of Study of Doctrate Recipients by Sex and Selected Years",
+        #     'y':0.94,
+        #     'x':0.5,
+        #     'xanchor': 'center',
+        #     'yanchor': 'top'})
+    st.plotly_chart(fig1)
 
 st.sidebar.markdown("### Number of Earned Doctorates by Race and Ethnicity")
 select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='2')
