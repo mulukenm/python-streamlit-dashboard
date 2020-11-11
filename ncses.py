@@ -53,13 +53,13 @@ if not st.sidebar.checkbox("Hide", True, key='2'):
         st.plotly_chart(fig_2)
 
 st.sidebar.markdown("### Earned Doctorate Recipients by Sex")
-sex = st.sidebar.selectbox('Visualization type', ['Bar plot1', 'Pie chart1'], key='3')
+sex = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='3')
 sex_count = data.groupby(["Sex"])['Number'].agg('sum')
 sex_count = pd.DataFrame({'Sex':sex_count.index, 'Number':sex_count.values})
 if not st.sidebar.checkbox("Hide", True, key='3'):
     st.markdown("### Earned Doctorate Recipients by Sex")
-    if select == 'Bar plot1':
-        fig_3 = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
+    if select == 'Bar plot':
+        fig_3 = px.bar(sex_count, x='Sex', y='Number', color='Number', height=700)
         st.plotly_chart(fig_3)
     else:
         fig_3 = px.pie(sex_count, values='Number', names='Sex')
