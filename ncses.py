@@ -27,7 +27,7 @@ def load_data():
 data = load_data()
 
 st.sidebar.markdown("### Number of Earned Doctorates")
-sex = st.sidebar.selectbox('Visualization type', ['Sunburst')
+sex = st.sidebar.selectbox('Visualization type', ['Sunburst'])
 fig1 = px.sunburst(data, path=['Detailed_Field', 'Year', 'Sex'], values='Number')
 st.fig.update_layout(
     title={
