@@ -29,7 +29,7 @@ data = load_data()
 st.sidebar.markdown("### Number of Earned Doctorates")
 sex = st.sidebar.selectbox('Visualization type', ['Sunburst'])
 fig1 = px.sunburst(data, path=['S&E_Fields','Broad_Fields', 'Detailed_Fields', 'Year', 'Sex'], values='Number', height = 800, width = 800)
-st.sidebar.checkbox("Close", True)
+if not st.sidebar.checkbox("Close", True)
 #fig1.update_layout(
     # title={
     #     'text': "Field of Study of Doctrate Recipients by Sex and Selected Years",
@@ -47,7 +47,7 @@ if not st.sidebar.checkbox("Hide", True, key='2'):
     st.markdown("### Numbers by Race/Ethnicity")
     if select == 'Bar plot':
         fig2 = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
-        st.plotly_chart()
+        st.plotly_chart(fig2)
     else:
         fig2 = px.pie(race_count, values='Number', names='Race_and_Ethnicity')
         st.plotly_chart(fig2)
