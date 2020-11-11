@@ -39,7 +39,7 @@ if not st.sidebar.checkbox("Hide", True):
         fig = px.pie(race_count, values='Number', names='Race_and_Ethnicity')
         st.plotly_chart(fig)
 st.sidebar.markdown("### Number of Earned Doctorates by Sex")
-select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='1')
+select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='2')
 race_count = data.groupby(["Sex"])['Number'].agg('sum')
 race_count = pd.DataFrame({'Sex':race_count.index, 'Number':race_count.values})
 if not st.sidebar.checkbox("Hide", True):
