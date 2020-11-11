@@ -46,7 +46,7 @@ sex_count = pd.DataFrame({'Sex':sex_count.index, 'Number':sex_count.values})
 if not st.sidebar.checkbox("Close", True, key='2'):
     st.markdown("### Numbers by Sex")
     if select == 'Bar plot':
-        fig = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
+        fig = px.bar(sex_count, x='Sex', y='Number', color='Sex', height=500)
         st.plotly_chart(fig)
     else:
         fig = px.pie(sex_count, values='Number', names='Sex')
