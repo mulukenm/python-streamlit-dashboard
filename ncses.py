@@ -29,7 +29,7 @@ data = load_data()
 st.sidebar.markdown("### Number of Earned Doctorates")
 sex = st.sidebar.selectbox('Visualization type', ['Sunburst'])
 fig1 = px.sunburst(data, path=['Detailed_Fields', 'Year', 'Sex'], values='Number')
-fig.update_layout(
+fig1.update_layout(
     title={
         'text': "Field of Study of Doctrate Recipients by Sex and Selected Years",
         'y':0.94,
