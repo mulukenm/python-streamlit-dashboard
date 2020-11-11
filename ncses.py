@@ -14,11 +14,10 @@ DATA_URL = (
 
 st.title("NCSES Survey of Earned Doctorates (SED)")
 st.sidebar.title("Survey of Earned Doctorates (SED)")
-st.markdown("This application is a Streamlit dashboard used"
-            "to analyze SED data by Race and ethnicity, Sex, S&E Fields,"
-            "Broad Fields, detailed Fields, and Years.")
-st.sidebar.markdown("This application is a Streamlit dashboard used "
-            "to SED data.")
+st.markdown("This application is a Python Streamlit dashboard to analyze "
+            "SED data by Race and ethnicity, Sex, S&E Fields, "
+            "Broad Fields, detailed Fields, and Years of Earned Doctorates.")
+st.sidebar.markdown("Survey of Earned Doctorates Recipientsby different attributes.")
 
 @st.cache(persist=True)
 def load_data():
@@ -59,7 +58,7 @@ sex_count = pd.DataFrame({'Sex':sex_count.index, 'Number':sex_count.values})
 if not st.sidebar.checkbox("Hide", True, key='3'):
     st.markdown("### Earned Doctorate Recipients by Sex")
     if select == 'Bar plot':
-        fig_3 = px.bar(sex_count, x='Sex', y='Number', color='Number', height=600)
+        fig_3 = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
         st.plotly_chart(fig_3)
     else:
         fig_3 = px.pie(sex_count, values='Number', names='Sex')
