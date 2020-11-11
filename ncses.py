@@ -26,6 +26,18 @@ def load_data():
     return data
 data = load_data()
 
+st.sidebar.markdown("### Number of Earned Doctorates")
+sex = st.sidebar.selectbox('Visualization type', ['Sunburst')
+fig1 = px.sunburst(data, path=['Detailed_Field', 'Year', 'Sex'], values='Number')
+st.fig.update_layout(
+    title={
+        'text': "Field of Study of Doctrate Recipients by Sex and Selected Years",
+        'y':0.94,
+        'x':0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'})
+st.plotly_chart(fig1)
+
 st.sidebar.markdown("### Number of Earned Doctorates by Race and Ethnicity")
 select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='1')
 race_count = data.groupby(["Race_and_Ethnicity"])['Number'].agg('sum')
@@ -33,12 +45,11 @@ race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Number':race_
 if not st.sidebar.checkbox("Hide", True):
     st.markdown("### Numbers by Race/Ethnicity")
     if select == 'Bar plot':
-        fig = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
-        #st.plotly_chart()
-        st.fig.show()
+        fig2 = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
+        st.plotly_chart()
     else:
-        fig = px.pie(race_count, values='Number', names='Race_and_Ethnicity')
-        st.plotly_chart(fig)
+        fig2 = px.pie(race_count, values='Number', names='Race_and_Ethnicity')
+        st.plotly_chart(fig2)
 
 st.sidebar.markdown("### Number of Earned Doctorates by Sex")
 sex = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='2')
@@ -47,8 +58,8 @@ sex_count = pd.DataFrame({'Sex':sex_count.index, 'Number':sex_count.values})
 if not st.sidebar.checkbox("Close", True, key='2'):
     st.markdown("### Numbers by Sex")
     if select == 'Bar plot':
-        fig = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
-        st.plotly_chart(fig)
+        fig3 = px.bar(sex_count, x='Sex', y='Number', color='Number', height=500)
+        st.plotly_chart(fig3)
     else:
-        fig = px.pie(sex_count, values='Number', names='Sex')
-        st.plotly_chart(fig)
+        fig3 = px.pie(sex_count, values='Number', names='Sex')
+        st.plotly_chart(fig3)
