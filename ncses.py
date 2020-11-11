@@ -29,7 +29,7 @@ data = load_data()
 st.sidebar.markdown("### Number of Earned Doctorates")
 sex = st.sidebar.selectbox('Visualization type', ['Sunburst'])
 fig1 = px.sunburst(data, path=['S&E_Fields','Broad_Fields', 'Detailed_Fields', 'Year', 'Sex'], values='Number', height = 700, width = 700)
-st.sidebar.checkbox("Hide", True):
+st.sidebar.checkbox("Hide", True)
 #fig1.update_layout(
     # title={
     #     'text': "Field of Study of Doctrate Recipients by Sex and Selected Years",
