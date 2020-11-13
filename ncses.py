@@ -38,6 +38,12 @@ if not st.sidebar.checkbox("Close", True):
         #     'yanchor': 'top'})
     st.plotly_chart(fig_1)
 
+st.sidebar.markdown("### Earned Doctorate Recipients by Sex and Race/Ethnicity")
+sex = st.sidebar.selectbox('Visualization type', ['Barplot'])
+if not st.sidebar.checkbox("Close", True):
+    fig = px.bar(data, x="Race_and_Ethnicity", y="Number", color="Sex", barmode="group")
+    st.plotly_chart(fig)
+
 st.sidebar.markdown("### Earned Doctorate Recipients by Race and Ethnicity")
 select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='2')
 race_count = data.groupby(["Race_and_Ethnicity"])['Number'].agg('sum')
