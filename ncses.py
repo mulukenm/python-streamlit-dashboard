@@ -15,8 +15,8 @@ DATA_URL = (
 st.title("NCSES Survey of Earned Doctorates (SED)")
 st.sidebar.title("Survey of Earned Doctorates (SED)")
 st.markdown("This application is a Python Streamlit dashboard to analyze "
-            "SED data by Race and ethnicity, Sex, S&E Fields, "
-            "Broad Fields, detailed Fields, and Years of Earned Doctorates.")
+            "SED data by Race and Ethnicity, Sex, S&E Fields, "
+            "Broad Fields, Detailed Fields, and Years of Earned Doctorates.")
 st.sidebar.markdown("Survey of Earned Doctorates Recipientsby different attributes.")
 
 @st.cache(persist=True)
