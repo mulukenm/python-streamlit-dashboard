@@ -26,7 +26,7 @@ def load_data():
 data = load_data()
 
 st.sidebar.markdown("### Earned Doctorate Recipients")
-select = st.sidebar.selectbox('Visualization type', ['Sunburst'])
+select1 = st.sidebar.selectbox('Visualization type', ['Sunburst'])
 if not st.sidebar.checkbox("Close", True):
     fig_1 = px.sunburst(data, path=['S&E_Fields','Broad_Fields', 'Detailed_Fields', 'Year', 'Sex'], values='Number', height = 800, width = 800)
     #fig1.update_layout(
@@ -39,14 +39,14 @@ if not st.sidebar.checkbox("Close", True):
     st.plotly_chart(fig_1)
 
 st.sidebar.markdown("### Earned Doctorate Recipients by Sex and Race/Ethnicity")
-select = st.sidebar.selectbox('Visualization type', ['Barplot'], key='2')
+select2 = st.sidebar.selectbox('Visualization type', ['Barplot'], key='2')
 if not st.sidebar.checkbox("Hide", True, key='2'):
     fig_1 = px.bar(data, x="Race_and_Ethnicity", y="Number", color="Sex", barmode="group")
     st.plotly_chart(fig_2)
 
 
 st.sidebar.markdown("### Earned Doctorate Recipients by Race and Ethnicity")
-select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='3')
+select3 = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='3')
 race_count = data.groupby(["Race_and_Ethnicity"])['Number'].agg('sum')
 race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Number':race_count.values})
 if not st.sidebar.checkbox("Hide", True, key='3'):
@@ -59,7 +59,7 @@ if not st.sidebar.checkbox("Hide", True, key='3'):
         st.plotly_chart(fig_3)
 
 st.sidebar.markdown("### Earned Doctorate Recipients by Sex")
-select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='4')
+select4 = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='4')
 sex_count = data.groupby(["Sex"])['Number'].agg('sum')
 sex_count = pd.DataFrame({'Sex':sex_count.index, 'Number':sex_count.values})
 if not st.sidebar.checkbox("Hide", True, key='4'):
