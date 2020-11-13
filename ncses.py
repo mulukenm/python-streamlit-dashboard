@@ -41,9 +41,10 @@ if not st.sidebar.checkbox("Close", True):
 
 st.sidebar.markdown("### Earned Doctorate Recipients by Sex and Race/Ethnicity")
 select2 = st.sidebar.selectbox('Visualization type', ['Barplot'], key='2')
+data2 = pd.DataFrame(data)
 if not st.sidebar.checkbox("Hide", True, key='2'):
     if select2 == 'Bar plot':
-        fig_2 = px.bar(data, x="Race_and_Ethnicity", y="Number", color="Sex", barmode="group")
+        fig_2 = px.bar(data2, x="Race_and_Ethnicity", y="Number", color="Sex", height = 500)
         st.plotly_chart(fig_2)
 
 
