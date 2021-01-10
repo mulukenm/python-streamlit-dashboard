@@ -8,9 +8,7 @@ from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 
 
-DATA_URL = (
-    "SED_new_11122020ed.csv"
-)
+DATA_URL = ("SED_new_11122020ed.csv")
 
 st.title("NCSES Survey of Earned Doctorates (SED)")
 st.sidebar.title("Survey of Earned Doctorates (SED)")
