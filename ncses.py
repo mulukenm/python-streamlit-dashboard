@@ -37,7 +37,7 @@ if not st.sidebar.checkbox("Close", True):
         #     'yanchor': 'top'})
         st.plotly_chart(fig_1)
 
-st.sidebar.markdown("### Earned Doctorate Recipients by Sex and Race/Ethnicity")
+st.sidebar.markdown("### Doctorate Recipients by Sex and Race/Ethnicity - SED 2017")
 select2 = st.sidebar.selectbox('Visualization type', ['Barplot'], key='2')
 data2 = pd.DataFrame(data)
 if not st.sidebar.checkbox("Hide", True, key='2'):
@@ -46,12 +46,12 @@ if not st.sidebar.checkbox("Hide", True, key='2'):
         st.plotly_chart(fig_2)
 
 
-st.sidebar.markdown("### Earned Doctorate Recipients by Race and Ethnicity")
+st.sidebar.markdown("### Doctorate Recipients by Race and Ethnicity - SED 2017 ")
 select3 = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='3')
 race_count = data.groupby(["Race_and_Ethnicity"])['Number'].agg('sum')
 race_count = pd.DataFrame({'Race_and_Ethnicity':race_count.index, 'Number':race_count.values})
 if not st.sidebar.checkbox("Hide", True, key='3'):
-    st.markdown("### Earned Doctorate Recipients by Race/Ethnicity")
+    st.markdown("###Doctorate Recipients by Race/Ethnicity - SED 2017 ")
     if select3 == 'Bar plot':
         fig_3 = px.bar(race_count, x='Race_and_Ethnicity', y='Number', color='Number', height=500)
         st.plotly_chart(fig_3)
